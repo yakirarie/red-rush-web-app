@@ -1,0 +1,50 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <h1>Scores</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <table class="table table-striped">
+
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">username</th>
+                            <th scope="col">3 x 3</th>
+                            <th scope="col">4 x 4</th>
+                            <th scope="col">5 x 5</th>
+                            <th scope="col">6 x 6</th>
+                            <th scope="col">7 x 7</th>
+                        </tr>
+                    </thead>
+
+                    {{#rows}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{username}}</td>
+                            <td>{{three}}</td>
+                            <td>{{four}}</td>
+                            <td>{{five}}</td>
+                            <td>{{six}}</td>
+                            <td>{{seven}}</td>
+                        </tr>
+                    {{/rows}}
+
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

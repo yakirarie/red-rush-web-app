@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>This is edit of meds page</h1>
+      
+    <form action="/users/edit/{{user.id}}" method="post">
+    <input type="text" name="username" value="{{user.username}}" placeholder=""/>
+    <input type="text" name="email" value="{{user.email}}" placeholder=""/>
+    <input type="text" name="password" value="{{user.password}}" placeholder=""/>
+    <button type="submit">save</button>
+    </form>     
+</body>
+</html>

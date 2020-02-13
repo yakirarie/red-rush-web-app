@@ -1,0 +1,74 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/dashstyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="card">
+                    <div class="card-header">
+                    Red Rush Stats
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Total Scores 3</th>
+                                    <th>Total Scores 4</th>
+                                    <th>Total Scores 5</th>
+                                    <th>Total Scores 6</th>
+                                    <th>Total Scores 7</th>
+                                    <th>Total Users</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {{#n1}}
+                                        <td>{{sum3}}</td>
+                                        <td>{{sum4}}</td>
+                                        <td>{{sum5}}</td>
+                                        <td>{{sum6}}</td>
+                                        <td>{{sum7}}</td>
+
+                                    {{/n1}}
+                                    {{#n2}}
+                                        <td>{{count}}</td>
+                                    {{/n2}}
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                    Navigation
+                    </div>
+                    <div class="card-body">
+                       <a class="btn btn-primary" href="/add">Login Screen</a>
+                       <a class="btn btn-primary" href="/scores">Scores Screen</a>
+                       <a class="btn btn-primary" href="/users">Users Screen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+        
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Red Rush</title>
+</head>
+
+<body>
+    <div style="text-align:center;">
+        <h1> User Name: <span id="username" >{{username}}</span></h1>
+        <h2>User ID: <span id="uid">{{id}}</span></h2>
+        <a href="/scores" class="btn btn-lg btn-primary">Watch Scores</a>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-5">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Board Size</span>
+                    </div>
+                    <input type="number" class="form-control" value="3" max="7" min="3" aria-label="size" id="size"
+                        aria-describedby="basic-addon1">
+                    <button type="button" class="btn btn-primary" id="select" onclick="changeSize()">New Game</button>
+
+                </div>
+                <h1 class="display-4 mt-3" id="gameOver"></h1>
+                <form action="" method="post" id="form">
+                    <button type="submit" id="submitScore" class="btn btn-success">Submit Score</button>
+                </form>
+
+
+
+            </div>
+            <div class="col-md-7">
+                <canvas id="myCanvas" style="border:1px solid #c3c3c3; width: 100%; height: auto; background-color: blue;">
+                    Your browser does not support the canvas element.
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/game.js"></script>
+</body>
+
+
+</div>
+
+</html>
