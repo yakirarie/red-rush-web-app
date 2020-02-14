@@ -226,15 +226,27 @@ app.post('/publish/:count/:size/:uid/:username', (req, res) => {
         password: 'yakir1994',
         port: 5432,
     });
+    const col = numberToString(req.params.size);
+
     client.connect().then(() => {
-        console.log('connection complete');
-        const col = numberToString(req.params.size);
-        const sql = 'update scores set ' + col + '=$1 where uid=$2';
-        console.log("colcheck", col);
-        const params = [req.params.count, parseInt(req.params.uid)];
+        console.log('getting previous score...');
+        const sql = 'select ' + col +' from scores where uid=$1';
+        const params = [parseInt(req.params.uid)];
         return client.query(sql, params);
+    }).then((results) => {
+        const prevScore = getScoreFromCol(results.rows[0], col);
+        if (prevScore < req.params.count){
+            console.log('updating score...');
+            const sql = 'update scores set ' + col + '=$1 where uid=$2';
+            const params = [req.params.count, parseInt(req.params.uid)];
+            return client.query(sql, params);
+        }
+        else{
+            console.log('No new record...');
+            return;
+        }
     }).then((results) =>{
-        console.log('results?', results);
+        console.log('reloading game');
         res.redirect('/game/'+req.params.uid+'/'+req.params.username);
 
         }
@@ -242,6 +254,20 @@ app.post('/publish/:count/:size/:uid/:username', (req, res) => {
 
 });
 
+function getScoreFromCol(resultsRow, col) {
+    switch (col) {
+        case ('three'):
+            return resultsRow.three;
+        case ('four'):
+            return resultsRow.four;
+        case ('five'):
+            return resultsRow.five;
+        case ('six'):
+            return resultsRow.six;
+        case ('seven'):
+            return resultsRow.seven;
+    }
+}
 function numberToString(num) {
     switch (parseInt(num)) {
         case (3):
